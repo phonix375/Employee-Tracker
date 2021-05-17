@@ -5,7 +5,7 @@ async function showAll() {
 
     const result = await pool.query('SELECT id, name from department');
     if (result[0].length < 1) {
-      throw new Error('department not found');
+      return {error: `No Departments`}
     }
     return result[0];
   

@@ -5,7 +5,7 @@ async function showAll() {
 
     const result = await pool.query('SELECT role.*, name as department_name from role JOIN department ON department_id = department.id;');
     if (result[0].length < 1) {
-      throw new Error('role not found');
+      return {error : `No roles found`}
     }
     return result[0];
   
